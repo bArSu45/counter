@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTER USING LS</title>
+    <style>
+        #plus{
+            color:greenyellow;
+            background-color:black;
+        }
+        #minus{
+            color: red;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <button id="plus">Increase</button>
+    <button id="minus">Decrease</button>
+
+</body>
+</html>
+
+<script>
+    var count = localStorage.getItem("counter") || 0;
+    var h1 = document.querySelector("h1")
+    h1.innerText = count;
+    document.querySelector("#plus").addEventListener("click",plusFun)
+
+    function plusFun(){
+        count++
+        h1.innerText = count;
+        localStorage.setItem("counter",count)
+    }
+
+
+    document.querySelector("#minus").addEventListener("click",minusFun)
+
+    function minusFun(){
+        count--
+        h1.innerText = count;
+        localStorage.setItem("counter",count)
+    }
+
+</script>
